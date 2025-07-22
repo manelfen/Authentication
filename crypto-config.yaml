@@ -1,0 +1,18 @@
+OrdererOrgs:
+  - Name: OrdererOrg
+    Domain: example.com
+    EnableNodeOUs: true
+    Specs:
+      - Hostname: orderer1
+      - Hostname: orderer2
+      - Hostname: orderer3
+
+PeerOrgs:
+  - Name: OrgMain
+    Domain: orgmain.example.com
+    EnableNodeOUs: true
+    Template:
+      Count: 9  # Total peers: 3 peers for each of the 3 channels
+    Users:
+      Count: 1  # Admin for OrgMain
+

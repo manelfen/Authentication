@@ -1,0 +1,17 @@
+# Utilisation de l'image de base Hyperledger Fabric tools
+FROM hyperledger/fabric-tools:2.5
+
+# Installer des dépendances supplémentaires si nécessaire
+# Par exemple, tu peux ajouter des outils comme curl ou git si tu en as besoin
+RUN apt-get update && apt-get install -y curl git
+
+# Définir un répertoire de travail
+WORKDIR /opt/gopath/src/github.com/hyperledger/fabric/peer
+
+# Copier les fichiers nécessaires du répertoire local vers le conteneur
+COPY ./crypto-config /etc/hyperledger/crypto
+COPY ./channel-artifacts /etc/hyperledger/channel-artifacts
+COPY ./chaincode /chaincode
+
+# Configurer l'entrée par défaut
+CMD ["/bin/bash"]

@@ -1,0 +1,201 @@
+{
+  "name": "orgmain",
+  "version": "1.0.0",
+  "client": {
+    "organization": "OrgMain",
+    "connection": {
+      "timeout": {
+        "peer": {
+          "endorser": "60000",
+          "eventHub": "60000",
+          "eventReg": "60000"
+        },
+        "orderer": "60000"
+      }
+    },
+    "credentialStore": {
+      "path": "/home/manel/pfev2/wallet",
+      "cryptoStore": {
+        "path": "/home/manel/pfev2/wallet"
+      }
+    }
+  },
+  "channels": {
+    "reg1channel": {
+      "orderers": ["orderer1.example.com"],
+      "peers": {
+        "peer0.orgmain": {
+          "endorsingPeer": true,
+          "chaincodeQuery": true,
+          "ledgerQuery": true,
+          "eventSource": true
+        },
+	"peer1.orgmain": {
+          "endorsingPeer": true,
+          "chaincodeQuery": true,
+          "ledgerQuery": true,
+          "eventSource": true
+        },
+	"peer2.orgmain": {
+          "endorsingPeer": true,
+          "chaincodeQuery": true,
+          "ledgerQuery": true,
+          "eventSource": true
+        }	
+      }
+    },
+    "globalchannel": {
+      "orderers": ["orderer1.example.com"],
+      "peers": {
+        "peer2.orgmain": {
+          "endorsingPeer": true,
+          "chaincodeQuery": true,
+          "ledgerQuery": true,
+          "eventSource": true
+        },
+     	 "peer5.orgmain": {
+           "endorsingPeer": true,
+           "chaincodeQuery": true,
+           "ledgerQuery": true,
+           "eventSource": true
+        }
+      }
+    },
+    "reg2channel": {
+      "orderers": ["orderer1.example.com"],
+      "peers": {
+        "peer3.orgmain": {
+          "endorsingPeer": true,
+          "chaincodeQuery": true,
+          "ledgerQuery": true,
+          "eventSource": true
+        },
+        "peer4.orgmain": {
+          "endorsingPeer": true,
+          "chaincodeQuery": true,
+          "ledgerQuery": true,
+          "eventSource": true
+        },
+        "peer5.orgmain": {
+          "endorsingPeer": true,
+          "chaincodeQuery": true,
+          "ledgerQuery": true,
+          "eventSource": true
+        }       
+      }
+    }
+  },
+  "organizations": {
+    "OrgMain": {
+      "mspid": "OrgMainMSP",
+      "peers": [
+        "peer0.orgmain",
+        "peer1.orgmain",
+	"peer2.orgmain",
+	"peer3.orgmain",
+	"peer4.orgmain",
+	"peer5.orgmain"
+      ],
+      "certificateAuthorities": ["ca.orgmain"],
+      "adminPrivateKey": {
+        "path": "/home/manel/pfev2/crypto-config/peerOrganizations/orgmain.example.com/users/Admin@orgmain.example.com/msp/keystore/*"
+      },
+      "signedCert": {
+        "path": "/home/manel/pfev2/crypto-config/peerOrganizations/orgmain.example.com/users/Admin@orgmain.example.com/msp/signcerts/*"
+      }
+    }
+  },
+  "orderers": {
+    "orderer1.example.com": {
+      "url": "grpcs://localhost:7050",
+      "grpcOptions": {
+        "ssl-target-name-override": "orderer1.example.com",
+        "hostnameOverride": "orderer1.example.com",
+        "request-timeout": 120000
+      },
+      "tlsCACerts": {
+        "path": "/home/manel/pfev2/crypto-config/ordererOrganizations/example.com/orderers/orderer1.example.com/tls/ca.crt"
+      }
+    }
+  },
+  "peers": {
+    "peer0.orgmain": {
+      "url": "grpcs://localhost:7051",
+      "grpcOptions": {
+        "ssl-target-name-override": "peer0.orgmain.example.com",
+        "hostnameOverride": "peer0.orgmain.example.com",
+        "request-timeout": 120000
+      },
+      "tlsCACerts": {
+        "path": "/home/manel/pfev2/crypto-config/peerOrganizations/orgmain.example.com/peers/peer0.orgmain.example.com/tls/ca.crt"
+      }
+    },
+    "peer1.orgmain": {
+      "url": "grpcs://localhost:8051",
+      "grpcOptions": {
+        "ssl-target-name-override": "peer1.orgmain.example.com",
+        "hostnameOverride": "peer1.orgmain.example.com",
+        "request-timeout": 120000
+      },
+      "tlsCACerts": {
+        "path": "/home/manel/pfev2/crypto-config/peerOrganizations/orgmain.example.com/peers/peer1.orgmain.example.com/tls/ca.crt"
+      }
+    },
+    "peer2.orgmain": {
+      "url": "grpcs://localhost:9051",
+      "grpcOptions": {
+        "ssl-target-name-override": "peer2.orgmain.example.com",
+        "hostnameOverride": "peer2.orgmain.example.com",
+        "request-timeout": 120000
+      },
+      "tlsCACerts": {
+        "path": "/home/manel/pfev2/crypto-config/peerOrganizations/orgmain.example.com/peers/peer2.orgmain.example.com/tls/ca.crt"
+      }
+    },
+    "peer3.orgmain": {
+      "url": "grpcs://localhost:10051",
+      "grpcOptions": {
+        "ssl-target-name-override": "peer3.orgmain.example.com",
+        "hostnameOverride": "peer3.orgmain.example.com",
+        "request-timeout": 120000
+      },
+      "tlsCACerts": {
+        "path": "/home/manel/pfev2/crypto-config/peerOrganizations/orgmain.example.com/peers/peer3.orgmain.example.com/tls/ca.crt"
+      }
+    },
+    "peer4.orgmain": {
+      "url": "grpcs://localhost:11051",
+      "grpcOptions": {
+        "ssl-target-name-override": "peer4.orgmain.example.com",
+        "hostnameOverride": "peer4.orgmain.example.com",
+        "request-timeout": 120000
+      },
+      "tlsCACerts": {
+        "path": "/home/manel/pfev2/crypto-config/peerOrganizations/orgmain.example.com/peers/peer4.orgmain.example.com/tls/ca.crt"
+      }
+    },
+    "peer5.orgmain": {
+      "url": "grpcs://localhost:12051",
+      "grpcOptions": {
+        "ssl-target-name-override": "peer5.orgmain.example.com",
+        "hostnameOverride": "peer5.orgmain.example.com",
+        "request-timeout": 120000
+      },
+      "tlsCACerts": {
+        "path":"/home/manel/pfev2/crypto-config/peerOrganizations/orgmain.example.com/peers/peer5.orgmain.example.com/tls/ca.crt"
+      }
+    }
+  },
+  "certificateAuthorities": {
+    "ca.orgmain": {
+      "url": "https://localhost:7054",
+      "caName": "ca-orgmain",
+      "httpOptions": {
+        "verify": false
+      },
+      "tlsCACerts": {
+        "path": "/home/manel/pfev2/crypto-config/peerOrganizations/orgmain.example.com/ca/ca.orgmain.example.com/tls/ca.crt"
+      }
+    }
+  }
+}
